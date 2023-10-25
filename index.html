@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Barbecue Restaurant</title>
+    <link rel="stylesheet" type="text/css" href="externel.css" >
+    <script>
+        function getLocation() {
+            if ("geolocation" in navigator) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    const latitude = position.coords.latitude;
+                    const longitude = position.coords.longitude;
+                    alert(`Your location: Latitude ${latitude}, Longitude ${longitude}`);
+                });
+            } else {
+                alert("Geolocation is not supported in your browser.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1 class="text-with-border" style="color: white; font-size: 50px; text-align: center;">Welcome to BBQ Delight</h1>
+
+        <!-- Navigation menu -->
+        <nav>
+            <ul>
+                <li><a href="title.html">Home</a></li>
+                <li><a href="menu.html">Menu Page</a></li>
+                <li><a href="reservation.html">Reservation</a></li>
+                <li><a href="bill.html">Bill Calculator</a></li>
+                <li><a href="index.html">Login</a></li>
+            </ul>
+        </nav>
+
+        
+    </header>
+
+    
+    <section>
+
+        <div class="login-container">
+            <h1>Login</h1>
+            <form action="login.php" method="post">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required><br>
+    
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required><br>
+    
+                <a href="title.html">submit</a>
+
+            </form>
+        </div>
+        
+        <button onclick="getLocation()">Get Location</button>
+
+    </section>
+    <footer>
+        <!-- Footer content -->
+    </footer>
+</body>
+</html>
