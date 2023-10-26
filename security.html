@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Page</title>
+    <link rel="stylesheet" type="text/css" href="externel.css">
+</head>
+<body>
+    
+    <div id="captcha-section" class="captcha">
+        <h3>Complete the CAPTCHA:</h3>
+        <div id="captcha"></div>
+        <input type="text" id="captcha-input" placeholder="Enter the CAPTCHA">
+        <button id="check-captcha">Check</button>
+        <p id="captcha-result"></p>
+    </div>
+    <script>
+        function generateCaptcha() {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let captcha = '';
+  for (let i = 0; i < 6; i++) {
+      captcha += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  return captcha;
+}
+
+function initCaptcha() {
+  const captcha = generateCaptcha();
+  document.getElementById('captcha').textContent = captcha;
+}
+
+document.getElementById('check-captcha').addEventListener('click', function () {
+  const captcha = document.getElementById('captcha').textContent;
+  const input = document.getElementById('captcha-input').value;
+  if (input === captcha) {
+      document.getElementById('captcha-result').textContent = 'CAPTCHA matched!';
+      window.location.href = 'index.html';
+  } else {
+      document.getElementById('captcha-result').textContent = 'CAPTCHA does not match. Please try again.';
+  }
+});
+
+initCaptcha();
+    </script>
+
+    
+</body>
+</html>
